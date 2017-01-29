@@ -50,9 +50,16 @@ public class Game extends Canvas implements Runnable {
 		    lastTime = now;
 		    if(delta >= 1){
 		    	update(delta);
+		    	render();
 		        delta--;
 		    }
-			render();
+		    
+		    // Wait 1 ms before next cycle
+		    try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
